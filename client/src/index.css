@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=SF+Pro+Display:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Mobile-native calculator palette */
+  --font-display: 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --background: 0 0% 0%; /* Pure Black */
+  --foreground: 0 0% 100%; /* Pure White */
+
+  /* Button Colors */
+  --btn-number: 240 6% 18%; /* Dark Gray #2E2E2E */
+  --btn-number-fg: 0 0% 100%;
+  
+  --btn-operator: 35 100% 50%; /* Orange #FF9500 */
+  --btn-operator-fg: 0 0% 100%;
+
+  --btn-function: 0 0% 65%; /* Light Gray #A5A5A5 */
+  --btn-function-fg: 0 0% 0%; /* Black text on light buttons */
+
+  --btn-secondary: 240 5% 26%; /* Slightly lighter gray for scientific ops */
+  
+  --muted: 0 0% 40%;
+  --muted-foreground: 0 0% 60%;
+  
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 35 100% 50%;
+}
+
+@layer base {
+  html, body {
+    @apply h-full w-full overflow-hidden bg-background text-foreground;
+    font-family: var(--font-display);
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  #root {
+    @apply h-full w-full flex flex-col;
+  }
+}
+
+/* Custom Calculator Button Styles */
+@layer components {
+  .calc-btn {
+    @apply relative flex items-center justify-center rounded-full text-2xl font-medium transition-all duration-200 active:scale-90 select-none touch-manipulation;
+  }
+  
+  .calc-btn-number {
+    @apply bg-[hsl(var(--btn-number))] text-[hsl(var(--btn-number-fg))] hover:bg-[hsl(var(--btn-number)/0.8)];
+  }
+  
+  .calc-btn-operator {
+    @apply bg-[hsl(var(--btn-operator))] text-[hsl(var(--btn-operator-fg))] hover:bg-[hsl(var(--btn-operator)/0.9)];
+  }
+  
+  .calc-btn-function {
+    @apply bg-[hsl(var(--btn-function))] text-[hsl(var(--btn-function-fg))] font-semibold hover:bg-[hsl(var(--btn-function)/0.9)];
+  }
+
+  .calc-btn-secondary {
+    @apply bg-[hsl(var(--btn-secondary))] text-white text-lg hover:bg-[hsl(var(--btn-secondary)/0.8)];
+  }
+}
+
+/* Scrollbar hiding for history */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

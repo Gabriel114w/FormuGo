@@ -1,0 +1,30 @@
+Matemática:
+- Equação do 2º grau (Bhaskara)
+- Função afim
+- Função exponencial
+- Função logarítmica
+- Área do triângulo
+- Área do círculo
+- Circunferência
+- Teorema de Pitágoras
+- Relação fundamental da trigonometria
+- Tangente
+- Lei dos senos
+- Lei dos cossenos
+
+Física:
+- Velocidade média
+- MRU (movimento retilíneo uniforme)
+- MRUV (movimento uniformemente variado)
+- 2ª Lei de Newton
+- Trabalho
+- Energia cinética
+- Energia potencial gravitacional
+- Lei de Ohm
+- Potência elétrica
+
+Química:
+- Concentração comum
+- Concentração molar (molaridade)
+- Equação dos gases ideais
+- Quantidade de calor

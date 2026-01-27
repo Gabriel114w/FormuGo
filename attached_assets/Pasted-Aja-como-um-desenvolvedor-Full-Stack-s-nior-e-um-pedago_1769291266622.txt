@@ -1,0 +1,55 @@
+Aja como um desenvolvedor Full Stack sênior e um pedagogo/designer de UI/UX. Crie um MVP (Minimum Viable Product) de uma Calculadora Educacional Web para estudantes do Ensino Médio (1º, 2º e 3º ano). O foco é ser visualmente idêntica a uma calculadora nativa de smartphone, mas com uma funcionalidade única: explicar o raciocínio matemático por trás da solução da expressão.
+
+Stack Tecnológica: HTML5, CSS3 moderno (com foco em responsividade total, 100vw/100vh) e JavaScript puro.
+
+Requisitos de UI/UX (Design "Nativo" e Educacional):
+
+Design "Nativo": A calculadora deve ocupar 100% da largura e altura da tela do navegador (100vw, 100vh), sem molduras de telefone. O layout deve ser limpo, moderno, com botões bem espaçados, responsivo para mobile (touch-friendly).
+
+Tema Dark: Utilize um tema dark elegante, similar às calculadoras de smartphones (ex: iOS ou Material You).
+
+Fundo principal: #000000 (preto total).
+
+Botões de números: #1C1C1E (cinza muito escuro).
+
+Botões de operadores principais (+, -, *, /): #FF9500 (laranja vibrante).
+
+Botões de funções/limpeza (AC, DEL, %, etc.): #A5A5A5 (cinza claro) com texto em preto.
+
+Visor Duplo:
+
+Linha Superior (Histórico/Expressão): Menor, exibindo a expressão sendo digitada ou o histórico.
+
+Linha Inferior (Resultado): Maior, fonte bold, alinhado à direita, exibindo o resultado final.
+
+Painel de Explicação:
+
+Inicialmente Oculto: Deve ser um painel (ou modal) que aparece após o cálculo do resultado (após o botão '=').
+
+Conteúdo: Explicará o passo a passo da resolução da expressão que o aluno digitou. A explicação deve ser clara, didática, usando termos simples e mostrando as etapas intermediárias.
+
+Acesso: Um botão discreto (ex: um 'i' de informação, ou "Explicação") próximo ao resultado para acionar este painel.
+
+Funcionalidades da Calculadora (Ensino Médio):
+
+Aritmética Básica: +, -, *, /.
+
+Operadores de Grupo: ( e ).
+
+Funções Essenciais: Potenciação (^), Raiz Quadrada (√), Porcentagem (%), Logaritmo (base 10 - log), Fatorial (!).
+
+Trigonometria: sen, cos, tan (resultados em graus, mas a função Math do JS usa radianos, então faça a conversão interna).
+
+Botões de Controle: AC (Limpar Tudo), DEL (Apagar Último Caractere).
+
+Lógica de Explicação (Muito Importante):
+
+Quando o botão = é pressionado, além de calcular o resultado, o JavaScript deve gerar uma string didática que detalha como a expressão foi avaliada, seguindo a ordem de precedência.
+
+Exemplo: Para "2 + 3 * 4", a explicação deveria ser: "1. Primeiro, resolvemos a multiplicação: 3 * 4 = 12. 2. Em seguida, somamos: 2 + 12 = 14. 3. Resultado final: 14."
+
+Para "√(9)", a explicação: "1. A raiz quadrada de 9 é o número que, multiplicado por ele mesmo, resulta em 9. 2. √9 = 3. 3. Resultado final: 3."
+
+A lógica para gerar a explicação deve ser integrada ao avaliador de expressão (Shunting-yard ou similar), registrando as operações à medida que são processadas.
+
+Estrutura: Gere o código em arquivos index.html, style.css e script.js para melhor organização.
