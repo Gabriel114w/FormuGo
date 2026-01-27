@@ -17,8 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@formugo/shared/*": ["../shared/*"],
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "../shared/**/*"]
 }
