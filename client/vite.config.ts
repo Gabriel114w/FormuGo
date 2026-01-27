@@ -10,11 +10,18 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
       "zod": path.resolve(__dirname, "./node_modules/zod"),
       "drizzle-orm": path.resolve(__dirname, "./node_modules/drizzle-orm"),
+      "drizzle-zod": path.resolve(__dirname, "./node_modules/drizzle-zod"),
     },
+    // Isso aqui é o "pulo do gato": força o Vite a resolver dependências 
+    // do shared usando o node_modules do client
+    preserveSymlinks: true,
   },
+  // Caso o preserveSymlinks não seja suficiente para o Rollup, 
+  // adicionamos os aliases específicos que estão faltando:
   build: {
-    // Força a pasta dist a ser criada dentro de client/
     outDir: "dist",
-    emptyOutDir: true,
+    rollupOptions: {
+      external: [], // Deixe vazio
+    }
   }
 })
