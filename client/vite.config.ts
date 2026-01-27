@@ -9,6 +9,7 @@ export default defineConfig({
       // Isso faz o Vite encontrar a pasta shared fora da pasta client
       "@formugo/shared": path.resolve(__dirname, "../shared"),
       "@": path.resolve(__dirname, "./src"),
+      "zod": path.resolve(__dirname, "./node_modules/zod"),
     },
   },
 })
