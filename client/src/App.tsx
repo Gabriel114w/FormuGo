@@ -9,6 +9,7 @@ import CalculatorPage from "@/pages/Calculator";
 import LandingPage from "@/pages/LandingPage";
 import PlansPage from "@/pages/PlansPage";
 import { Loader2 } from "lucide-react";
+import { supabase } from "./supabaseClient"; // ✅ import do Supabase
 
 function LoadingScreen() {
   return (
@@ -45,10 +46,26 @@ function AuthenticatedRouter() {
 }
 
 function App() {
+  // ✅ função de teste de conexão
+  const testConnection = async () => {
+    const { data, error } = await supabase.from("users").select("*");
+    console.log("Supabase data:", data);
+    console.log("Supabase error:", error);
+  };
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
+        {/* Botão temporário para testar conexão */}
+        <div className="p-4">
+          <button
+            onClick={testConnection}
+            className="bg-orange-500 text-white px-4 py-2 rounded"
+          >
+            Testar Supabase
+          </button>
+        </div>
         <AuthenticatedRouter />
       </TooltipProvider>
     </QueryClientProvider>
