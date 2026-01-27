@@ -6,22 +6,10 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"),
-      "@shared": path.resolve(__dirname, "../shared"),
-    },
-  },
-  root: path.resolve(__dirname),
-  build: {
-    outDir: path.resolve(__dirname, "../dist/public"),
-    emptyOutDir: true,
-  },
-  server: {
-    fs: {
-      strict: true,
-      deny: ["**/.*"],
+      "@": path.resolve(__dirname, "src"), // permite importar coisas do src usando "@"
     },
   },
   optimizeDeps: {
-    include: ["zod"], // força o Vite a incluir o zod
+    include: ["zod"], // garante que o zod seja incluído no bundle
   },
 });

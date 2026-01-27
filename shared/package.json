@@ -1,0 +1,13 @@
+{
+  "name": "@formugo/shared",
+  "version": "1.0.0",
+  "main": "routes.ts",
+  "type": "module",
+  "files": [
+    "routes.ts",
+    "schema.ts"
+  ],
+  "dependencies": {
+    "zod": "^3.22.0"
+  }
+}

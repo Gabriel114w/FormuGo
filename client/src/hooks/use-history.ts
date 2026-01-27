@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { api, type CreateHistoryInput, type HistoryResponse } from "@shared/routes";
+import { api, type CreateHistoryInput, type HistoryResponse } from "@formugo/shared/routes";
 
 export function useHistory() {
   return useQuery({
