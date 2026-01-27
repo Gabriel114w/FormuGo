@@ -21,4 +21,7 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
+  optimizeDeps: {
+    include: ["zod"], // força o Vite a incluir o zod
+  },
 });
