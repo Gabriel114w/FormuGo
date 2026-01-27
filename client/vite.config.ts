@@ -10,6 +10,7 @@ export default defineConfig({
       "@formugo/shared": path.resolve(__dirname, "../shared"),
       "@": path.resolve(__dirname, "./src"),
       "zod": path.resolve(__dirname, "./node_modules/zod"),
+      "drizzle-orm": path.resolve(__dirname, "./node_modules/drizzle-orm"),
     },
   },
 })
