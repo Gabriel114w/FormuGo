@@ -57,7 +57,7 @@
   
   .calc-btn-operator {
     @apply bg-[hsl(var(--btn-operator))] text-[hsl(var(--btn-operator-fg))] hover:bg-[hsl(var(--btn-operator)/0.9)];
-  }
+  }          
   
   .calc-btn-function {
     @apply bg-[hsl(var(--btn-function))] text-[hsl(var(--btn-function-fg))] font-semibold hover:bg-[hsl(var(--btn-function)/0.9)];

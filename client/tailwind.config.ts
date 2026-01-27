@@ -2,7 +2,10 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
     extend: {
       borderRadius: {
@@ -12,8 +15,8 @@ export default {
       },
       colors: {
         // Flat / base colors (regular buttons)
-        background: "hsl(var(--background) / <alpha-value>)",
-        foreground: "hsl(var(--foreground) / <alpha-value>)",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         border: "hsl(var(--border) / <alpha-value>)",
         input: "hsl(var(--input) / <alpha-value>)",
         card: {
