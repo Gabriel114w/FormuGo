@@ -31,8 +31,8 @@ function AuthenticatedRouter() {
     return <LandingPage />;
   }
 
-  if (!user?.planSelectedAt && location !== "/plans") {
-    return <PlansPage />;
+  if (isAuthenticated && location === "/plans") {
+      return <PlansPage />;
   }
 
   return (

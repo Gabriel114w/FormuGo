@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-import { supabase } from "@/supabaseClient"; // Certifique-se que o caminho está certo
+import { supabase } from "@/supabaseClient"; 
 
-//Definição local para resolver o erro imediatamente
+//Definindo o tipo localmente para remover os erros vermelhos
 export interface User {
   id: string;
   email?: string;
-  name?: string;     // vindo da tabela customers
-  username?: string; // fallback
-  plan?: string;     // vindo da tabela subscriptions (se tiver join futuro)
-  created_at?: string;
-  [key: string]: any; // Permite passar outros campos do Supabase sem travar o TS
+  name?: string;
+  plan?: string;
+  planSelectedAt?: string; // Importante para o seu App.tsx
+  [key: string]: any; 
 }
 
 export function useAuth() {
