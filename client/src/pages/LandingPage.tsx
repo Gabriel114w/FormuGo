@@ -5,23 +5,26 @@ import { supabase } from "@/supabaseClient"; // ✅ Importando o Supabase
 
 export default function LandingPage() {
 
-  // ✅ Função para lidar com o login
-  const handleLogin = async () => {
-    // Tenta fazer login com o Google (ou outro provedor que você configurou)
-    // Se preferir Magic Link ou Senha, podemos ajustar depois.
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo: window.location.origin // Garante que ele volte para a sua URL da Vercel
-      }
-    });
+// ✅ Função para lidar com o login (Corrigida)
+const handleLogin = async () => {
+  const email = window.prompt("Digite seu e-mail para entrar:");
+  if (!email) return;
 
-    if (error) {
-      alert("Erro ao conectar com o Supabase: " + error.message);
-    }
-  };
+  const { error } = await supabase.auth.signInWithOtp({
+    email: email,
+    options: {
+      emailRedirectTo: window.location.origin,
+    },
+  });
 
-  return (
+  if (error) {
+    alert("Erro ao enviar e-mail: " + error.message);
+  } else {
+    alert("Sucesso! Verifique seu e-mail e clique no link para entrar.");
+  }
+};
+
+return (
     <div className="min-h-screen bg-black text-white flex flex-col overflow-y-auto">
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-black/80 border-b border-zinc-800">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
