@@ -48,9 +48,8 @@ function AuthenticatedRouter() {
 function App() {
   // ✅ função de teste de conexão
   const testConnection = async () => {
-    const { data, error } = await supabase.from("users").select("*");
-    console.log("Supabase data:", data);
-    console.log("Supabase error:", error);
+    const { data, error } = await supabase.from("customers").select("*");
+    console.log("Conexão com Customers:", data, error);
   };
 
   return (
