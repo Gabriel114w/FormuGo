@@ -1,8 +1,26 @@
 import { Calculator, Sparkles, BookOpen, GraduationCap, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { supabase } from "@/supabaseClient"; // ✅ Importando o Supabase
 
 export default function LandingPage() {
+
+  // ✅ Função para lidar com o login
+  const handleLogin = async () => {
+    // Tenta fazer login com o Google (ou outro provedor que você configurou)
+    // Se preferir Magic Link ou Senha, podemos ajustar depois.
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: window.location.origin // Garante que ele volte para a sua URL da Vercel
+      }
+    });
+
+    if (error) {
+      alert("Erro ao conectar com o Supabase: " + error.message);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-black text-white flex flex-col overflow-y-auto">
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-black/80 border-b border-zinc-800">
@@ -13,11 +31,15 @@ export default function LandingPage() {
             </div>
             <span className="font-bold text-xl">CalcEdu</span>
           </div>
-          <a href="/api/login">
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white font-medium" data-testid="button-login-nav">
-              Entrar
-            </Button>
-          </a>
+
+          {/* ✅ MUDANÇA AQUI: Trocamos <a> por onClick */}
+          <Button 
+            onClick={handleLogin}
+            className="bg-orange-500 hover:bg-orange-600 text-white font-medium" 
+            data-testid="button-login-nav"
+          >
+            Entrar
+          </Button>
         </div>
       </nav>
 
@@ -43,17 +65,22 @@ export default function LandingPage() {
             Calculadora científica com explicações passo a passo, guia de fórmulas do ensino médio e muito mais.
           </p>
 
-          <a href="/api/login">
-            <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg px-8 py-6 gap-2" data-testid="button-login-hero">
-              Começar Agora <ChevronRight className="w-5 h-5" />
-            </Button>
-          </a>
+          {/* ✅ MUDANÇA AQUI: Trocamos <a> por onClick */}
+          <Button 
+            size="lg" 
+            onClick={handleLogin}
+            className="bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg px-8 py-6 gap-2" 
+            data-testid="button-login-hero"
+          >
+            Começar Agora <ChevronRight className="w-5 h-5" />
+          </Button>
 
           <p className="text-sm text-zinc-500 mt-4">
             Plano gratuito disponível
           </p>
         </motion.div>
 
+        {/* ... restante dos cards igual ... */}
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
